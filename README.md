@@ -1,6 +1,6 @@
 # Daily Project 3 — Sistem Pelacakan Alumni (Web)
 
-- GitHub repo: https://github.com/Celcouzz/daily-project-3-track-alumni-
+- GitHub repo: https://github.com/Celcouzz/daily-project-3-web-tracker-alumni-.git
 - Publish web (GitHub Pages): https://celcouzz.github.io/daily-project-3-web-tracker-alumni-/
 
 ## Fitur yang Disimulasikan
