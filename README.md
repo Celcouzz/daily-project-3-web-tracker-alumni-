@@ -1,44 +1,7 @@
 # Daily Project 3 — Sistem Pelacakan Alumni (Web)
 
-Prototype web statis (HTML/CSS/JS) yang mengimplementasikan alur use case:
-
-1. **Profiling Data** (profil master alumni → normalisasi & alias)
-2. **Query Generator**
-3. **Mesin Pencari Publik (simulasi)** → multi-source evidence
-4. **Validasi & Skor** → finalisasi data alumni
-5. **Filter data pribadi / Opt-out**
-
-## Cara Menjalankan
-
-Opsi paling mudah:
-- Buka file `index.html` langsung di browser.
-
-Opsi disarankan (agar fetch/clipboard lebih stabil):
-- Jalankan server lokal: `python -m http.server 5500`
-- Buka: `http://localhost:5500`
-
-Halaman yang tersedia:
-- `auth.html` — Login admin/operator
-- `register.html` — Registrasi admin/operator
-- `index.html` — Profiling + generate query
-- `search.html` — Pencarian publik (crawler simulasi)
-- `validation.html` — Validasi, finalisasi, dan proof
-
-## Auth (Login/Registrasi)
-
-Prototype ini memakai autentikasi **client-side** (tanpa backend) untuk kebutuhan demo.
-
-- Jika belum login, halaman utama akan redirect ke `auth.html`.
-- Halaman awal hanya **Login**: `auth.html`.
-- Registrasi ada di halaman terpisah: `register.html`.
-- Opsi cepat untuk demo: tombol **Buat Admin Default** membuat akun `admin` / `admin123`.
-
-Catatan: Ini **bukan** sistem keamanan produksi karena data akun tersimpan di browser.
-
-## Link
-
 - GitHub repo: https://github.com/Celcouzz/daily-project-3-track-alumni-
-- Publish web (GitHub Pages): https://celcouzz.github.io/daily-project-3-track-alumni-/
+- Publish web (GitHub Pages): https://celcouzz.github.io/daily-project-3-web-tracker-alumni-/
 
 ## Fitur yang Disimulasikan
 
