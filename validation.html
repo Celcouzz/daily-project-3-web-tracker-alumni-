@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Validasi dan bukti untuk Sistem Pelacakan Alumni" />
+  <title>Validasi & Bukti — Sistem Pelacakan Alumni</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div>
+            <div class="brand-title">Sistem Pelacakan Alumni</div>
+            <div class="brand-subtitle muted">Daily Project 3 — Prototype Web</div>
+          </div>
+        </div>
+        <nav class="nav" aria-label="Navigasi">
+          <a class="nav-link" href="index.html">Profiling</a>
+          <a class="nav-link" href="search.html">Pencarian Publik</a>
+          <a class="nav-link is-active" href="validation.html" aria-current="page">Validasi & Bukti</a>
+        </nav>
+        <button id="btnLogout" class="btn btn-ghost" type="button">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Validasi & Bukti</h1>
+        <p class="muted">Verifikasi manual evidence, cek skor, finalisasi data alumni, dan simpan proof lokal.</p>
+        <p id="jsStatus" class="hint muted">JS: (memuat...)</p>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-ghost" href="search.html">Kembali ke Pencarian</a>
+        <button id="btnReset" class="btn" type="button">Reset</button>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <section class="card" aria-labelledby="validationTitle">
+        <div class="card-head">
+          <h2 id="validationTitle">3) Skor, Finalisasi, Proof</h2>
+          <span class="badge">Operator</span>
+        </div>
+
+        <div class="stack">
+          <div class="row">
+            <div class="mini">
+              <div class="mini-title">Skor Tertinggi</div>
+              <div id="topScore" class="mono muted">-</div>
+            </div>
+            <div class="mini">
+              <div class="mini-title">Status</div>
+              <div id="statusText" class="mono muted">Menunggu evidence</div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="row row-center">
+            <button id="btnFinalize" class="btn" type="button">Finalisasi Data Alumni</button>
+            <button id="btnSaveProof" class="btn btn-ghost" type="button">Simpan Bukti</button>
+          </div>
+
+          <div class="field">
+            <label for="finalOutput">Hasil Finalisasi (ringkas)</label>
+            <textarea id="finalOutput" rows="9" readonly placeholder="Hasil finalisasi akan muncul di sini..."></textarea>
+            <p class="hint">Simpan Bukti menyimpan ringkasan evidence ke LocalStorage dan bisa diexport.</p>
+          </div>
+
+          <div class="card-subhead">
+            <h3>Riwayat Bukti (Local)</h3>
+            <div class="actions">
+              <button id="btnExportProof" class="btn btn-ghost" type="button">Export Proof</button>
+              <button id="btnClearProof" class="btn btn-ghost" type="button">Hapus Proof</button>
+            </div>
+          </div>
+
+          <div id="proofList" class="list small"></div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="evidenceTitle">
+        <div class="card-head">
+          <h2 id="evidenceTitle">Evidence</h2>
+          <span class="badge">Multi-source</span>
+        </div>
+
+        <div class="stack">
+          <div class="row row-center">
+            <button id="btnClearEvidence" class="btn btn-ghost" type="button" disabled>Clear Evidence</button>
+            <button id="btnExportEvidence" class="btn btn-ghost" type="button" disabled>Export Evidence JSON</button>
+          </div>
+
+          <div id="evidenceEmpty" class="empty">
+            <div class="empty-title">Belum ada evidence</div>
+            <div class="muted">Buka halaman Pencarian Publik dan klik <strong>Jalankan Crawler</strong>.</div>
+          </div>
+
+          <div id="evidenceList" class="list" aria-live="polite"></div>
+        </div>
+      </section>
+    </section>
+
+    <section class="card" aria-labelledby="notesTitle">
+      <div class="card-head">
+        <h2 id="notesTitle">Catatan Implementasi</h2>
+        <span class="badge">MVP</span>
+      </div>
+      <div class="stack">
+        <ul class="bullets">
+          <li>Tanpa backend: semua berjalan di browser.</li>
+          <li>Evidence disimulasikan (tidak scraping/melanggar ToS).</li>
+          <li>Opt-out: proses & penyimpanan dinonaktifkan.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <div class="muted">Daily Project 3 — Web prototype (HTML/CSS/JS).</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

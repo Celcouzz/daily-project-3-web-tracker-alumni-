@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Login dan registrasi admin/operator untuk Sistem Pelacakan Alumni" />
+  <title>Login — Sistem Pelacakan Alumni</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div>
+            <div class="brand-title">Sistem Pelacakan Alumni</div>
+            <div class="brand-subtitle muted">Daily Project 3 — Prototype Web</div>
+          </div>
+        </div>
+        <nav class="nav" aria-label="Navigasi">
+          <a class="nav-link" href="auth.html" aria-current="page">Login</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Login Admin / Operator</h1>
+        <p class="muted">Prototype ini memakai autentikasi sederhana di browser (tanpa backend). Untuk demo kelas saja.</p>
+        <p id="jsStatus" class="hint muted">JS: (memuat...)</p>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <section class="card" aria-labelledby="loginTitle">
+        <div class="card-head">
+          <h2 id="loginTitle">Login</h2>
+          <span class="badge">Admin</span>
+        </div>
+
+        <form id="loginForm" class="stack" autocomplete="off">
+          <div class="field">
+            <label for="loginUsername">Username</label>
+            <input id="loginUsername" name="username" placeholder="contoh: admin" required />
+          </div>
+
+          <div class="field">
+            <label for="loginPassword">Password</label>
+            <input id="loginPassword" name="password" type="password" placeholder="••••••••" required />
+          </div>
+
+          <div class="actions">
+            <button class="btn" type="submit">Masuk</button>
+            <button id="btnSeedAdmin" class="btn btn-ghost" type="button">Buat Admin Default</button>
+          </div>
+
+          <p id="authMessage" class="hint muted"></p>
+          <p class="hint">Admin default (opsional): <span class="mono">admin</span> / <span class="mono">admin123</span></p>
+
+          <div class="divider"></div>
+          <p class="hint">Belum punya akun? <a href="register.html">Registrasi di sini</a>.</p>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <div class="muted">Daily Project 3 — Auth demo client-only.</div>
+  </footer>
+
+  <script>
+    // Mark this page as public to avoid redirect loop.
+    window.__DP3_PUBLIC_PAGE__ = true;
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

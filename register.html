@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Registrasi admin/operator untuk Sistem Pelacakan Alumni" />
+  <title>Registrasi — Sistem Pelacakan Alumni</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div>
+            <div class="brand-title">Sistem Pelacakan Alumni</div>
+            <div class="brand-subtitle muted">Daily Project 3 — Prototype Web</div>
+          </div>
+        </div>
+        <nav class="nav" aria-label="Navigasi">
+          <a class="nav-link" href="auth.html">Login</a>
+          <a class="nav-link is-active" href="register.html" aria-current="page">Registrasi</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Registrasi Admin / Operator</h1>
+        <p class="muted">Akun disimpan di browser (LocalStorage). Untuk demo prototype saja.</p>
+        <p id="jsStatus" class="hint muted">JS: (memuat...)</p>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-ghost" href="auth.html">Kembali ke Login</a>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <section class="card" aria-labelledby="registerTitle">
+        <div class="card-head">
+          <h2 id="registerTitle">Buat Akun</h2>
+          <span class="badge">Create</span>
+        </div>
+
+        <form id="registerForm" class="stack" autocomplete="off">
+          <div class="field">
+            <label for="regUsername">Username</label>
+            <input id="regUsername" name="username" placeholder="contoh: operator1" required />
+            <p class="hint">Huruf/angka/titik/underscore, 3–24 karakter.</p>
+          </div>
+
+          <div class="field">
+            <label for="regPassword">Password</label>
+            <input id="regPassword" name="password" type="password" placeholder="minimal 6 karakter" required />
+          </div>
+
+          <div class="field">
+            <label for="regPassword2">Ulangi Password</label>
+            <input id="regPassword2" name="password2" type="password" placeholder="ulang" required />
+          </div>
+
+          <p id="authMessage" class="hint muted"></p>
+
+          <div class="actions">
+            <button class="btn" type="submit">Daftar & Masuk</button>
+            <a class="btn btn-ghost" href="auth.html">Sudah punya akun? Login</a>
+          </div>
+        </form>
+      </section>
+
+      <section class="card" aria-labelledby="noteTitle">
+        <div class="card-head">
+          <h2 id="noteTitle">Catatan</h2>
+          <span class="badge">Demo</span>
+        </div>
+        <div class="stack">
+          <div class="empty">
+            <div class="empty-title">Ini auth demo</div>
+            <div class="muted">Registrasi ini hanya untuk memenuhi alur use case pada tugas (tanpa backend).</div>
+          </div>
+          <ul class="bullets">
+            <li>Jika kamu ingin, registrasi bisa dibatasi hanya oleh admin yang sudah login.</li>
+            <li>Data akun tersimpan lokal di browser.</li>
+          </ul>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <div class="muted">Daily Project 3 — Auth demo client-only.</div>
+  </footer>
+
+  <script>
+    window.__DP3_PUBLIC_PAGE__ = true;
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

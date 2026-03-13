@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Mesin pencarian publik untuk Sistem Pelacakan Alumni" />
+  <title>Pencarian Publik — Sistem Pelacakan Alumni</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div>
+            <div class="brand-title">Sistem Pelacakan Alumni</div>
+            <div class="brand-subtitle muted">Daily Project 3 — Prototype Web</div>
+          </div>
+        </div>
+        <nav class="nav" aria-label="Navigasi">
+          <a class="nav-link" href="index.html">Profiling</a>
+          <a class="nav-link is-active" href="search.html" aria-current="page">Pencarian Publik</a>
+          <a class="nav-link" href="validation.html">Validasi & Bukti</a>
+        </nav>
+        <button id="btnLogout" class="btn btn-ghost" type="button">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Pencarian Publik</h1>
+        <p class="muted">Jalankan crawler untuk menghasilkan evidence dari query yang dibuat di halaman Profiling. Kamu bisa pakai mode simulasi atau 1 sumber API publik.</p>
+        <p id="jsStatus" class="hint muted">JS: (memuat...)</p>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-ghost" href="index.html">Kembali ke Profiling</a>
+        <a class="btn" href="validation.html">Ke Validasi</a>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <section class="card" aria-labelledby="searchTitle">
+        <div class="card-head">
+          <h2 id="searchTitle">2) Konfigurasi Crawler</h2>
+          <span class="badge">Automated</span>
+        </div>
+
+        <div class="stack">
+          <div class="field">
+            <label for="queryList">Query (dibawa dari Profiling)</label>
+            <textarea id="queryList" rows="6" readonly placeholder="Buka Profiling untuk generate query..."></textarea>
+            <p class="hint">Jika query kosong, kembali ke Profiling dan klik <strong>Generate Query</strong>.</p>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="engine">Sumber Evidence</label>
+              <select id="engine">
+                <option value="google">Google</option>
+                <option value="bing">Bing</option>
+                <option value="openalex">OpenAlex (API publik)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="resultCount">Jumlah Evidence</label>
+              <select id="resultCount">
+                <option value="6">6</option>
+                <option value="10" selected>10</option>
+                <option value="14">14</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Sumber Data (multi-source)</label>
+            <div class="chips" role="group" aria-label="Sumber data">
+              <label class="chip"><input type="checkbox" id="srcScholar" checked /> <span>Portal Akademik (Scholar/Sinta)</span></label>
+              <label class="chip"><input type="checkbox" id="srcPublic" checked /> <span>Web Instansi & Berita Publik</span></label>
+            </div>
+            <p class="hint">Catatan: opsi multi-source hanya dipakai pada mode simulasi. Mode OpenAlex memakai API publik.</p>
+          </div>
+
+          <div class="row row-center">
+            <button id="btnRunCrawler" class="btn" type="button">Jalankan Crawler</button>
+            <button id="btnClearEvidence" class="btn btn-ghost" type="button" disabled>Clear Evidence</button>
+          </div>
+          <p id="crawlerDisabledReason" class="hint muted"></p>
+
+          <div class="divider"></div>
+
+          <div class="mini">
+            <div class="mini-title">Ringkasan</div>
+            <div class="mono muted" id="searchSummary">Menunggu query</div>
+          </div>
+
+          <div class="actions">
+            <button id="btnExportEvidence" class="btn btn-ghost" type="button" disabled>Export Evidence JSON</button>
+            <a class="btn" href="validation.html">Lanjut Validasi</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="whatNextTitle">
+        <div class="card-head">
+          <h2 id="whatNextTitle">Apa Berikutnya?</h2>
+          <span class="badge">Operator</span>
+        </div>
+        <div class="stack">
+          <div class="empty">
+            <div class="empty-title">Validasi dilakukan di halaman terpisah</div>
+            <div class="muted">Setelah evidence terkumpul, buka <strong>Validasi & Bukti</strong> untuk verifikasi manual, finalisasi, dan simpan proof.</div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <div class="muted">Prototype client-only — HTML/CSS/JS.</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

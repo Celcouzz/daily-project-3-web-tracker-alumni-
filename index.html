@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Prototype Sistem Pelacakan Alumni (Open Source)" />
+  <title>Profiling — Sistem Pelacakan Alumni</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div>
+            <div class="brand-title">Sistem Pelacakan Alumni</div>
+            <div class="brand-subtitle muted">Daily Project 3 — Prototype Web</div>
+          </div>
+        </div>
+        <nav class="nav" aria-label="Navigasi">
+          <a class="nav-link is-active" href="index.html" aria-current="page">Profiling</a>
+          <a class="nav-link" href="search.html">Pencarian Publik</a>
+          <a class="nav-link" href="validation.html">Validasi & Bukti</a>
+        </nav>
+        <button id="btnLogout" class="btn btn-ghost" type="button">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Profiling Data</h1>
+        <p class="muted">Mulai dari input profil alumni → normalisasi & query generator. Lanjutkan ke halaman Pencarian untuk menjalankan crawler simulasi.</p>
+        <p id="jsStatus" class="hint muted">JS: (memuat...)</p>
+      </div>
+      <div class="hero-actions">
+        <button id="btnReset" class="btn btn-ghost" type="button">Reset</button>
+        <button id="btnDemo" class="btn" type="button">Isi Contoh</button>
+        <a class="btn" href="search.html">Lanjut Pencarian</a>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <section class="card" aria-labelledby="profilingTitle">
+        <div class="card-head">
+          <h2 id="profilingTitle">1) Profiling</h2>
+          <span class="badge">Operator</span>
+        </div>
+
+      <form id="profileForm" class="stack" autocomplete="off">
+        <div class="field">
+          <label for="fullName">Nama Alumni</label>
+          <input id="fullName" name="fullName" placeholder="contoh: Rina Putri" required />
+        </div>
+
+        <div class="field">
+          <label for="aliases">Alias / Variasi Nama (pisahkan dengan koma)</label>
+          <input id="aliases" name="aliases" placeholder="contoh: Rina P., R. Putri" />
+          <p class="hint">Dipakai untuk normalisasi & pencocokan.</p>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="domicile">Domisili</label>
+            <input id="domicile" name="domicile" placeholder="contoh: Bandung" />
+          </div>
+          <div class="field">
+            <label for="program">Prodi</label>
+            <input id="program" name="program" placeholder="contoh: Teknik Informatika" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="gradYear">Tahun Lulus</label>
+            <input id="gradYear" name="gradYear" inputmode="numeric" placeholder="contoh: 2023" />
+          </div>
+          <div class="field">
+            <label for="campus">Kampus / Universitas</label>
+            <input id="campus" name="campus" placeholder="contoh: Universitas X" />
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="row row-center">
+          <label class="checkbox">
+            <input id="optOut" name="optOut" type="checkbox" />
+            <span>Opt-out (jangan proses/simpan data)</span>
+          </label>
+          <button id="btnGenerate" class="btn" type="submit">Generate Query</button>
+        </div>
+        <p class="hint">Catatan: Prototype ini <strong>tidak</strong> melakukan pencarian web sungguhan. Evidence bisa disimulasikan untuk demo tugas.</p>
+      </form>
+
+      <div class="stack">
+        <div class="card-subhead">
+          <h3>Normalisasi & Query Generator</h3>
+          <div class="actions">
+            <button id="btnCopyQuery" class="btn btn-ghost" type="button" disabled>Copy Queries</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="mini">
+            <div class="mini-title">Nama Normalisasi</div>
+            <div id="normalizedName" class="mono muted">-</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Alias Terdeteksi</div>
+            <div id="normalizedAliases" class="mono muted">-</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="queryList">Daftar Query</label>
+          <textarea id="queryList" rows="6" readonly placeholder="Query akan muncul di sini..."></textarea>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="search.html">Buka Pencarian Publik</a>
+          <a class="btn btn-ghost" href="validation.html">Buka Validasi</a>
+        </div>
+      </div>
+      </section>
+
+      <section class="card" aria-labelledby="aboutTitle">
+        <div class="card-head">
+          <h2 id="aboutTitle">Ringkas Alur</h2>
+          <span class="badge">MVP</span>
+        </div>
+        <div class="stack">
+          <div class="empty">
+            <div class="empty-title">Step-by-step</div>
+            <div class="muted">1) Profiling → 2) Pencarian (crawler simulasi) → 3) Validasi & Bukti</div>
+          </div>
+          <ul class="bullets">
+            <li>Tanpa backend: semua berjalan di browser.</li>
+            <li>Evidence disimulasikan (tidak scraping/melanggar ToS).</li>
+            <li>Opt-out: proses & penyimpanan diblokir.</li>
+          </ul>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <div class="muted">Daily Project 3 — Web prototype (HTML/CSS/JS).</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
