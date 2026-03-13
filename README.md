@@ -5,7 +5,7 @@
 
 ## Fitur yang Disimulasikan
 
-Karena ini prototype tanpa backend, modul pencarian publik **tidak** melakukan pencarian web sungguhan dan **tidak** melakukan scraping. Evidence dibuat secara simulasi untuk menunjukkan:
+Evidence dibuat secara simulasi untuk menunjukkan:
 - bentuk evidence (title/url/snippet/source)
 - proses skoring kecocokan
 - verifikasi manual
