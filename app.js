@@ -749,16 +749,18 @@ function renderEvidence(){
     openBtn.type = 'button';
     openBtn.textContent = 'Buka Bukti';
     openBtn.addEventListener('click', () => {
-      // simulasikan halaman bukti (new tab) tanpa akses eksternal
-      const w = window.open('', '_blank');
-      if(!w){
-        notifyUser('Popup diblokir browser. Izinkan pop-up untuk 127.0.0.1/localhost agar “Buka Bukti” bisa terbuka.');
+      const url = String(ev.url || '').trim();
+      if(!url || !/^https?:\/\//i.test(url)){
+        notifyUser('Link bukti tidak tersedia untuk evidence ini.');
         return;
       }
-      w.document.write(`<!doctype html><meta charset="utf-8"><title>Bukti</title>`);
-      w.document.write(`<pre style="white-space:pre-wrap;font:14px system-ui;">${escapeHtml(JSON.stringify(ev, null, 2))}</pre>`);
-      w.document.close();
-      w.focus();
+
+      const w = window.open(url, '_blank');
+      if(!w){
+        notifyUser('Popup diblokir browser. Izinkan pop-up agar “Buka Bukti” bisa terbuka.');
+        return;
+      }
+      try { w.opener = null; } catch {}
     });
 
     controls.appendChild(verifyLabel);
