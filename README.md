@@ -37,8 +37,8 @@ Catatan: Ini **bukan** sistem keamanan produksi karena data akun tersimpan di br
 
 ## Link
 
-- GitHub repo: (isi setelah push)
-- Publish web (GitHub Pages / Netlify / Vercel): (isi setelah publish)
+- GitHub repo: https://github.com/Celcouzz/Daily-project-3-website-alumni-tracker-
+- Publish web (GitHub Pages): https://celcouzz.github.io/Daily-project-3-website-alumni-tracker-/
 
 ## Fitur yang Disimulasikan
 
