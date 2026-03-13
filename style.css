@@ -1,17 +1,20 @@
 :root{
-  color-scheme: light dark;
+  color-scheme: light;
 
   --radius-lg: 18px;
   --radius-md: 14px;
   --radius-sm: 12px;
 
-  --border: color-mix(in oklab, CanvasText 18%, Canvas);
-  --border-soft: color-mix(in oklab, CanvasText 10%, Canvas);
-  --surface: color-mix(in oklab, CanvasText 4%, Canvas);
-  --surface-2: color-mix(in oklab, CanvasText 7%, Canvas);
-  --text-soft: color-mix(in oklab, CanvasText 72%, Canvas);
-  --shadow: 0 18px 50px color-mix(in oklab, CanvasText 16%, transparent);
-  --shadow-soft: 0 10px 30px color-mix(in oklab, CanvasText 12%, transparent);
+  --brand: #0f7a3b;
+  --brand-ink: #06351b;
+  --brand-soft: color-mix(in oklab, var(--brand) 14%, white);
+  --border: color-mix(in oklab, var(--brand-ink) 18%, white);
+  --border-soft: color-mix(in oklab, var(--brand-ink) 10%, white);
+  --surface: white;
+  --surface-2: color-mix(in oklab, var(--brand) 6%, white);
+  --text-soft: color-mix(in oklab, var(--brand-ink) 70%, white);
+  --shadow: 0 18px 50px color-mix(in oklab, var(--brand-ink) 14%, transparent);
+  --shadow-soft: 0 10px 30px color-mix(in oklab, var(--brand-ink) 10%, transparent);
 }
 
 *{ box-sizing: border-box; }
@@ -21,11 +24,11 @@ html, body{ height: 100%; }
 body{
   margin: 0;
   font: 14px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: CanvasText;
+  color: var(--brand-ink);
   background:
-    radial-gradient(900px 500px at 16% -10%, color-mix(in oklab, CanvasText 8%, Canvas), transparent 60%),
-    radial-gradient(900px 520px at 90% 0%, color-mix(in oklab, CanvasText 6%, Canvas), transparent 62%),
-    Canvas;
+    radial-gradient(900px 520px at 16% -10%, color-mix(in oklab, var(--brand) 16%, white), transparent 62%),
+    radial-gradient(900px 540px at 92% 0%, color-mix(in oklab, var(--brand) 10%, white), transparent 64%),
+    white;
 }
 
 h1, h2, h3{ margin: 0; line-height: 1.15; }
@@ -44,10 +47,10 @@ a{ color: inherit; }
 .site-header{
   position: sticky;
   top: 0;
-  z-index: 20;
-  background: color-mix(in oklab, Canvas 86%, transparent);
+  z-index: 1000;
+  background: white;
   border-bottom: 1px solid var(--border-soft);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 22px color-mix(in oklab, var(--brand-ink) 8%, transparent);
 }
 
 .topbar{
@@ -63,7 +66,7 @@ a{ color: inherit; }
   width: 34px;
   height: 34px;
   border-radius: 12px;
-  background: color-mix(in oklab, CanvasText 14%, Canvas);
+  background: color-mix(in oklab, var(--brand) 18%, white);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
 }
@@ -88,20 +91,20 @@ a{ color: inherit; }
 
 .nav-link:hover{
   border-color: var(--border-soft);
-  background: color-mix(in oklab, CanvasText 6%, Canvas);
-  color: CanvasText;
+  background: color-mix(in oklab, var(--brand) 8%, white);
+  color: var(--brand-ink);
 }
 
 .nav-link.is-active{
   border-color: var(--border);
-  background: color-mix(in oklab, CanvasText 10%, Canvas);
-  color: CanvasText;
+  background: color-mix(in oklab, var(--brand) 14%, white);
+  color: var(--brand-ink);
 }
 
 .hero{
   border: 1px solid var(--border-soft);
   border-radius: var(--radius-lg);
-  background: color-mix(in oklab, CanvasText 3%, Canvas);
+  background: var(--surface-2);
   padding: 16px;
   display: flex;
   align-items: flex-start;
@@ -170,12 +173,12 @@ input, select, textarea{
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 10px 11px;
-  background: Canvas;
-  color: CanvasText;
+  background: white;
+  color: var(--brand-ink);
 }
 
 input:focus, select:focus, textarea:focus, button:focus, a:focus{
-  outline: 2px solid color-mix(in oklab, CanvasText 32%, Canvas);
+  outline: 2px solid color-mix(in oklab, var(--brand) 45%, white);
   outline-offset: 2px;
 }
 
@@ -191,14 +194,14 @@ textarea{ resize: vertical; }
   padding: 4px 10px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: color-mix(in oklab, CanvasText 7%, Canvas);
+  background: color-mix(in oklab, var(--brand) 10%, white);
   white-space: nowrap;
 }
 
 .btn{
   border: 1px solid var(--border);
-  background: CanvasText;
-  color: Canvas;
+  background: var(--brand);
+  color: white;
   border-radius: 999px;
   padding: 10px 14px;
   font-weight: 750;
@@ -208,7 +211,7 @@ textarea{ resize: vertical; }
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-shadow: 0 8px 22px color-mix(in oklab, CanvasText 12%, transparent);
+  box-shadow: 0 8px 22px color-mix(in oklab, var(--brand-ink) 12%, transparent);
 }
 
 .btn:hover{ transform: translateY(-1px); }
@@ -216,12 +219,12 @@ textarea{ resize: vertical; }
 .btn:disabled{ opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; }
 
 .btn.btn-ghost{
-  background: Canvas;
-  color: CanvasText;
+  background: white;
+  color: var(--brand-ink);
   box-shadow: none;
 }
 
-.btn.btn-ghost:hover{ background: color-mix(in oklab, CanvasText 6%, Canvas); }
+.btn.btn-ghost:hover{ background: color-mix(in oklab, var(--brand) 8%, white); }
 
 .actions{ display: flex; gap: 10px; flex-wrap: wrap; }
 
@@ -234,7 +237,7 @@ textarea{ resize: vertical; }
   border: 1px solid var(--border-soft);
   border-radius: var(--radius-md);
   padding: 10px;
-  background: color-mix(in oklab, CanvasText 3%, Canvas);
+  background: var(--surface-2);
 }
 
 .mini-title{ font-size: 12px; font-weight: 800; margin-bottom: 6px; color: var(--text-soft); }
@@ -249,7 +252,7 @@ textarea{ resize: vertical; }
   border-radius: 999px;
   padding: 8px 10px;
   user-select: none;
-  background: Canvas;
+  background: white;
 }
 
 .chip input{ width: auto; }
@@ -258,7 +261,7 @@ textarea{ resize: vertical; }
   border: 1px dashed var(--border);
   border-radius: var(--radius-md);
   padding: 14px;
-  background: color-mix(in oklab, CanvasText 2%, Canvas);
+  background: color-mix(in oklab, var(--brand) 6%, white);
 }
 
 .empty-title{ font-weight: 850; margin-bottom: 4px; }
@@ -272,7 +275,7 @@ textarea{ resize: vertical; }
   padding: 12px;
   display: grid;
   gap: 8px;
-  background: color-mix(in oklab, CanvasText 2%, Canvas);
+  background: color-mix(in oklab, var(--brand) 5%, white);
 }
 
 .item-top{ display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
@@ -288,7 +291,30 @@ textarea{ resize: vertical; }
   border-radius: 999px;
   padding: 2px 8px;
   color: var(--text-soft);
-  background: color-mix(in oklab, CanvasText 6%, Canvas);
+  background: color-mix(in oklab, var(--brand) 8%, white);
+}
+
+@media (max-width: 560px){
+  .container{ padding: 14px; }
+
+  .topbar{
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    min-height: auto;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  .topbar > .brand{ order: 1; flex: 1 1 auto; min-width: 220px; }
+  .topbar > #btnLogout{ order: 2; }
+  .topbar > .nav{
+    order: 3;
+    flex: 1 0 100%;
+    justify-content: center;
+  }
+
+  .nav-link{ padding: 8px 10px; }
 }
 
 .bullets{ margin: 0; padding-left: 18px; }
