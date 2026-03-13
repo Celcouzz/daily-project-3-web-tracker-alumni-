@@ -37,8 +37,8 @@ Catatan: Ini **bukan** sistem keamanan produksi karena data akun tersimpan di br
 
 ## Link
 
-- GitHub repo: https://github.com/Celcouzz/Project-tracker-alumni-daily-project-3-
-- Publish web (GitHub Pages): https://celcouzz.github.io/Project-tracker-alumni-daily-project-3-/
+- GitHub repo: https://github.com/Celcouzz/daily-project-3-track-alumni-
+- Publish web (GitHub Pages): https://celcouzz.github.io/daily-project-3-track-alumni-/
 
 ## Fitur yang Disimulasikan
 
